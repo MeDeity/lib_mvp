@@ -1,8 +1,8 @@
 name: lib_mvp
-description: A new Flutter package.
-version: 0.0.1
-author:
-homepage:
+description: An mvp pattern implementation of flutter
+version: 1.0.0
+author:  MeDeity<langrenbule@gmail.com>
+homepage: https://github.com/MeDeity/lib_mvp
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
