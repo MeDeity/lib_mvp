@@ -3,15 +3,15 @@
 an achieve of mvp framework,
 
 
-##thanks
+## Thanks
 Thanks to the [simplezhli -> flutter deer](https://github.com/simplezhli/flutter_deer) project,
 this library is an MVP implementation separated from this project.
 
 This is a strongly coupled tool library with the following open source libraries built in:
-[dio](https://github.com/flutterchina/dio): ^2.1.13
-[sprintf](https://github.com/Naddiseo/dart-sprintf): ^4.0.0
-[rxdart](https://github.com/ReactiveX/rxdart): ^0.21.0
-[oktoast](https://github.com/OpenFlutter/flutter_oktoast): ^2.1.8
+1. [dio](https://github.com/flutterchina/dio): ^2.1.13
+2. [sprintf](https://github.com/Naddiseo/dart-sprintf): ^4.0.0
+3. [rxdart](https://github.com/ReactiveX/rxdart): ^0.21.0
+4. [oktoast](https://github.com/OpenFlutter/flutter_oktoast): ^2.1.8
 
 ## Getting Started
 
@@ -71,5 +71,8 @@ class IndexPagePresenter extends BasePagePresenter<IndexPageState>{
 Hope you enjoy it!!!!
 
 Here is a [sample demo](https://github.com/MeDeity/flutter_mvp) show how to use this mvp framework,scan this qrcode to download android demo.
-![android demo apk](https://fir.im/9ct2),Or It is especially recommended that you check out this open source project =>[simplezhli -> flutter deer](https://github.com/simplezhli/flutter_deer)
+
+![android demo apk](screenshot/demo_download_url.png)
+
+Or It is especially recommended that you check out this open source project =>[simplezhli -> flutter deer](https://github.com/simplezhli/flutter_deer)
 
