@@ -160,11 +160,11 @@ class DioUtils {
         .listen((result) {
       if (isList) {
         if (onSuccessList != null) {
-          onSuccessList(result.data);
+          onSuccessList(result);
         }
       } else {
         if (onSuccess != null) {
-          onSuccess(result.data);
+          onSuccess(result);
         }
       }
     }, onError: (e) {
