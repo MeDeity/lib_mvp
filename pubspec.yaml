@@ -1,7 +1,7 @@
 name: lib_mvp
 description: An mvp pattern implementation of flutter
 version: 1.0.0
-author:  MeDeity<langrenbule@gmail.com>
+author:  simplezhli<a05111993@163.com>,MeDeity<langrenbule@gmail.com>
 homepage: https://github.com/MeDeity/lib_mvp
 
 environment:

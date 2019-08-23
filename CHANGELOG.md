@@ -1,3 +1,3 @@
-## [0.0.1] - TODO: Add release date.
+## [1.0.0] - 2019-8-23 17:50:09
 
-* TODO: Describe initial release.
+* Mvp mode implementation, network request encapsulation
