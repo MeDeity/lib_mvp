@@ -25,7 +25,6 @@ abstract class BasePageState<T extends StatefulWidget, V extends BasePagePresent
   @override
   void closeProgress() {
     if (mounted && _isShowDialog){
-      print("关闭对话框...");
       _isShowDialog = false;
       AppNavigator.pop(context);
     }
@@ -64,7 +63,6 @@ abstract class BasePageState<T extends StatefulWidget, V extends BasePagePresent
   void showProgress() {
     /// 避免重复弹出
     if (mounted && !_isShowDialog){
-      print("显示对话框...");
       _isShowDialog = true;
       try{
         showTransparentDialog(

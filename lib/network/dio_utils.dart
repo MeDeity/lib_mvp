@@ -1,7 +1,7 @@
 import 'dart:convert';
+
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:lib_mvp/network/base_entity.dart';
 import 'package:lib_mvp/network/error_handler.dart';
 import 'package:lib_mvp/network/intercept.dart';
 import 'package:rxdart/rxdart.dart';

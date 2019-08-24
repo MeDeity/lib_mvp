@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 
 ///
 ///原始路由
-///create by fengwenhua at 2019-6-26 13:33:17
 ///
 class AppNavigator {
   ///打开一个新的页面
