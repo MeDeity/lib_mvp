@@ -14,6 +14,28 @@ This is a strongly coupled tool library with the following open source libraries
 4. [oktoast](https://github.com/OpenFlutter/flutter_oktoast): ^2.1.8
 
 ## Getting Started
+#### Use this package as a library
+1. Depend on it
+Add this to your package's pubspec.yaml file:
+```
+dependencies:
+  lib_mvp: ^1.0.0
+```
+
+2.Install it
+You can install packages from the command line:
+
+with Flutter:
+```
+$ flutter pub get
+```
+
+
+Now in your Dart code, you can use:
+
+```
+import 'package:lib_mvp/lib_mvp.dart';
+```
 
 #### 一、 init OKToast:
 ```
