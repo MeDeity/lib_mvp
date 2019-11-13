@@ -57,11 +57,15 @@ class DioUtils {
       dynamic data,
       Map<String, dynamic> queryParameters,
       CancelToken cancelToken,
+      ProgressCallback onSendProgress,
+      ProgressCallback onReceiveProgress,
       Options options}) async {
     _dio.options.baseUrl = baseUrl; //修改请求根地址
     Response response = await _dio.request(url,
         data: data,
         queryParameters: queryParameters,
+        onSendProgress: onSendProgress,
+        onReceiveProgress: onReceiveProgress,
         options: _checkOptions(method, options));
     print("response:${json.decode(response?.data?.toString() ?? "")}");
     return response;
@@ -72,11 +76,15 @@ class DioUtils {
       dynamic data,
       Map<String, dynamic> queryParameters,
       CancelToken cancelToken,
+      ProgressCallback onSendProgress,
+      ProgressCallback onReceiveProgress,
       Options options}) async {
     _dio.options.baseUrl = baseUrl;
     Response response = await _dio.request(url,
         data: data,
         queryParameters: queryParameters,
+        onSendProgress: onSendProgress,
+        onReceiveProgress: onReceiveProgress,
         options: _checkOptions(method, options),
         cancelToken: cancelToken);
     print("response:${json.decode(response?.data?.toString() ?? "")}");
@@ -90,12 +98,16 @@ class DioUtils {
       dynamic params,
       Map<String, dynamic> queryParameters,
       CancelToken cancelToken,
+      ProgressCallback onSendProgress,
+      ProgressCallback onReceiveProgress,
       Options options}) async {
     String m = _getRequestMethod(method);
     return await _request(m, url,
             baseUrl: baseUrl,
             data: params,
             queryParameters: queryParameters,
+            onSendProgress: onSendProgress,
+            onReceiveProgress: onReceiveProgress,
             options: options,
             cancelToken: cancelToken)
         .then((Response result) {
@@ -113,6 +125,8 @@ class DioUtils {
       Function(int code, String mag) onError,
       dynamic params,
       Map<String, dynamic> queryParameters,
+      ProgressCallback onSendProgress,
+      ProgressCallback onReceiveProgress,
       CancelToken cancelToken,
       Options options}) async {
     String m = _getRequestMethod(method);
@@ -121,6 +135,8 @@ class DioUtils {
             data: params,
             queryParameters: queryParameters,
             options: options,
+            onSendProgress: onSendProgress,
+            onReceiveProgress: onReceiveProgress,
             cancelToken: cancelToken)
         .then((Response result) {
       onSuccess(result);
@@ -137,6 +153,8 @@ class DioUtils {
       Function(Response response) onSuccess,
       Function(Response response) onSuccessList,
       Function(int code, String mag) onError,
+      ProgressCallback onSendProgress,
+      ProgressCallback onReceiveProgress,
       dynamic params,
       Map<String, dynamic> queryParameters,
       CancelToken cancelToken,
@@ -149,12 +167,16 @@ class DioUtils {
                 data: params,
                 queryParameters: queryParameters,
                 options: options,
+                onSendProgress: onSendProgress,
+                onReceiveProgress: onReceiveProgress,
                 cancelToken: cancelToken)
             : _request(m, url,
                 baseUrl: baseUrl,
                 data: params,
                 queryParameters: queryParameters,
                 options: options,
+                onSendProgress: onSendProgress,
+                onReceiveProgress: onReceiveProgress,
                 cancelToken: cancelToken))
         .asBroadcastStream()
         .listen((result) {

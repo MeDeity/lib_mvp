@@ -41,6 +41,8 @@ class BasePagePresenter<V extends IMvpView> extends IPresenter {
       Function(int code, String mag) onError,
       dynamic params,
       Map<String, dynamic> queryParameters,
+      ProgressCallback onSendProgress,
+      ProgressCallback onReceiveProgress,
       CancelToken cancelToken,
       Options options}) async {
     if (isShow) view.showProgress();
@@ -48,6 +50,8 @@ class BasePagePresenter<V extends IMvpView> extends IPresenter {
         params: params,
         queryParameters: queryParameters,
         options: options,
+        onSendProgress: onSendProgress,
+        onReceiveProgress: onReceiveProgress,
         cancelToken: cancelToken ?? _cancelToken, onSuccess: (data) {
       if (isClose) view.closeProgress();
       if (onSuccess != null) {
@@ -69,6 +73,8 @@ class BasePagePresenter<V extends IMvpView> extends IPresenter {
       dynamic params,
       Map<String, dynamic> queryParameters,
       CancelToken cancelToken,
+      ProgressCallback onSendProgress,
+      ProgressCallback onReceiveProgress,
       Options options}) async {
     if (isShow) view.showProgress();
     await DioUtils.instance.requestList(method, url,
@@ -76,6 +82,8 @@ class BasePagePresenter<V extends IMvpView> extends IPresenter {
         baseUrl: baseUrl,
         queryParameters: queryParameters,
         options: options,
+        onSendProgress: onSendProgress,
+        onReceiveProgress: onReceiveProgress,
         cancelToken: cancelToken ?? _cancelToken, onSuccess: (data) {
       if (isClose) view.closeProgress();
       if (onSuccess != null) {
@@ -97,6 +105,8 @@ class BasePagePresenter<V extends IMvpView> extends IPresenter {
       dynamic params,
       Map<String, dynamic> queryParameters,
       CancelToken cancelToken,
+      ProgressCallback onSendProgress,
+      ProgressCallback onReceiveProgress,
       Options options,
       bool isList: false}) {
     if (isShow) view.showProgress();
@@ -105,6 +115,8 @@ class BasePagePresenter<V extends IMvpView> extends IPresenter {
         baseUrl: baseUrl,
         queryParameters: queryParameters,
         options: options,
+        onSendProgress: onSendProgress,
+        onReceiveProgress: onReceiveProgress,
         cancelToken: cancelToken ?? _cancelToken,
         isList: isList, onSuccess: (data) {
       if (isClose) view.closeProgress();
