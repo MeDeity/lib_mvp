@@ -202,8 +202,8 @@ class DioUtils {
     }
   }
 
-  _onError(int code, String msg, Function(int code, String mag) onError) {
-    print("接口请求异常： code: $code, mag: $msg");
+  _onError(int code, String msg, Function(int code, String msg) onError) {
+    print("接口请求异常： code: $code, msg: $msg");
     if (onError != null) {
       onError(code, msg);
     }
