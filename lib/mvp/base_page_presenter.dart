@@ -32,6 +32,36 @@ class BasePagePresenter<V extends IMvpView> extends IPresenter {
   @override
   void initState() {}
 
+  Future multipartFile(Method method,
+      {@required String url,
+        bool isShow: true,
+        bool isClose: true,
+        Function(Response reponse) onSuccess,
+        Function(int code, String mag) onError,
+        dynamic params,
+        Map<String, dynamic> queryParameters,
+        ProgressCallback onSendProgress,
+        ProgressCallback onReceiveProgress,
+        CancelToken cancelToken,
+        Options options}) async {
+    await DioUtils.instance.request(method, url,
+        params: params,
+        queryParameters: queryParameters,
+        options: options,
+        onSendProgress: onSendProgress,
+        onReceiveProgress: onReceiveProgress,
+        cancelToken: cancelToken ?? _cancelToken,
+        onSuccess: (data) {
+          if (isClose) view.closeProgress();
+          if (onSuccess != null) {
+            onSuccess(data);
+          }
+        },
+        onError: (code, msg) {
+          _onError(code, msg, onError);
+        });
+  }
+
   /// 返回Future 适用于刷新，加载更多
   Future request(Method method,
       {@required String url,

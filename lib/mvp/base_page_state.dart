@@ -6,6 +6,7 @@ import 'package:lib_mvp/utils/toast_utils.dart';
 import 'package:lib_mvp/utils/utils.dart';
 import 'package:lib_mvp/widget/base_dialog.dart';
 import 'package:lib_mvp/widget/loading_dialog.dart';
+import 'package:lib_mvp/widget/progress_dialog.dart';
 import 'base_page_presenter.dart';
 
 ///回调函数定义
@@ -59,6 +60,46 @@ abstract class BasePageState<T extends StatefulWidget, V extends BasePagePresent
         });
   }
 
+  void showSendProgress({double count:0,double total:1}){
+    /// 避免重复弹出
+    if (mounted && !_isShowDialog){
+      _isShowDialog = true;
+      try{
+        showTransparentDialog(
+            context: context,
+            barrierDismissible: false,
+            builder:(_) {
+              return WillPopScope(
+                onWillPop: () async {
+                  // 拦截到返回键，证明dialog被手动关闭
+                  _isShowDialog = false;
+                  return Future.value(true);
+                },
+//                child: ProgressDialog(content: "正在加载..."),
+              child: ProgressDialog(view: Column(
+                children: <Widget>[
+                  LinearProgressIndicator(
+                    value: count/total,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Text("$count/$total"),
+                      Text("${count/total*100}%"),
+                    ],
+                  ),
+                ],
+              )),
+              );
+            }
+        );
+      }catch(e){
+        /// 异常原因主要是页面没有build完成就调用Progress。
+        print(e);
+      }
+    }
+  }
+
   @override
   void showProgress() {
     /// 避免重复弹出
@@ -75,7 +116,7 @@ abstract class BasePageState<T extends StatefulWidget, V extends BasePagePresent
                   _isShowDialog = false;
                   return Future.value(true);
                 },
-                child: ProgressDialog(content: "正在加载..."),
+                child: LoadingDialog(content: "正在加载..."),
               );
             }
         );

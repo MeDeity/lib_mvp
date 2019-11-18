@@ -2,12 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lib_mvp/res/resources.dart';
 
-class ProgressDialog extends StatefulWidget {
+class LoadingDialog extends StatefulWidget {
   final String content;
   final bool isOutSideTapDismiss;
   final Function dismiss;
 
-  ProgressDialog({this.content, this.isOutSideTapDismiss: false, this.dismiss});
+  LoadingDialog({this.content, this.isOutSideTapDismiss: false, this.dismiss});
 
   @override
   State<StatefulWidget> createState() {
@@ -15,7 +15,7 @@ class ProgressDialog extends StatefulWidget {
   }
 }
 
-class _LoadingState extends State<ProgressDialog> {
+class _LoadingState extends State<LoadingDialog> {
   String content;
 
   _LoadingState({this.content});

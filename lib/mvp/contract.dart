@@ -6,6 +6,8 @@ abstract class IMvpView {
   /// 显示Progress
   void showProgress();
 
+  void showSendProgress({double count,double total});
+
   /// 关闭Progress
   void closeProgress();
 

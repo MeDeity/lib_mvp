@@ -12,7 +12,7 @@ dependencies:
   flutter:
     sdk: flutter
   # 网络库 https://github.com/flutterchina/dio
-  dio: ^2.1.13
+  dio: ^3.0.4
   # 格式化返回值字符串
   sprintf: ^4.0.0
   # https://github.com/ReactiveX/rxdart
