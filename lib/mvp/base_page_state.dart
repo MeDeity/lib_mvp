@@ -60,6 +60,34 @@ abstract class BasePageState<T extends StatefulWidget, V extends BasePagePresent
         });
   }
 
+
+  void showWidgetDialog(Widget widget,{VoidCallback cancelCallback,ParamCallback callback,String data,String title}){
+    showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (BuildContext context) {
+          return BaseDialog(
+            title: title??"",
+            hiddenTitle: (null==title||title.isEmpty),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+              child: widget,
+            ),
+            onCancel: (){
+              if(null!=cancelCallback){
+                cancelCallback();
+              }
+            },
+            onPressed: (){
+              AppNavigator.pop(context);
+              if(null!=callback) {
+                callback(data);
+              }
+            },
+          );
+        });
+  }
+
   void showSendProgress({double count:0,double total:1}){
     /// 避免重复弹出
     if (mounted && !_isShowDialog){
