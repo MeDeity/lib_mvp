@@ -129,7 +129,7 @@ abstract class BasePageState<T extends StatefulWidget, V extends BasePagePresent
   }
 
   @override
-  void showProgress() {
+  void showProgress({String content:"正在加载..."}) {
     /// 避免重复弹出
     if (mounted && !_isShowDialog){
       _isShowDialog = true;
@@ -144,7 +144,7 @@ abstract class BasePageState<T extends StatefulWidget, V extends BasePagePresent
                   _isShowDialog = false;
                   return Future.value(true);
                 },
-                child: LoadingDialog(content: "正在加载..."),
+                child: LoadingDialog(content: content),
               );
             }
         );

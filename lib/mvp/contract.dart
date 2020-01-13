@@ -4,7 +4,7 @@ import 'package:lib_mvp/mvp/ilife_cycle.dart';
 
 abstract class IMvpView {
   /// 显示Progress
-  void showProgress();
+  void showProgress({String content});
 
   void showSendProgress({double count,double total});
 
