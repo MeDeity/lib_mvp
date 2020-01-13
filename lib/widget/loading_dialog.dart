@@ -56,6 +56,7 @@ class _LoadingState extends State<LoadingDialog> {
                   Gaps.vGap8,
                   Text(content,
                       style: TextStyle(color: Colors.white),
+                      maxLines: 2,
                       overflow: TextOverflow.ellipsis)
                 ],
               ),
